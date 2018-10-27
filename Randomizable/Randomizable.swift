@@ -8,25 +8,25 @@
 
 import Foundation
 
-protocol Randomizable {
+public protocol Randomizable {
     associatedtype RandomElement
     static var random: RandomElement { get }
 }
 
 extension Int: Randomizable {
-    static var random: Int {
+    public static var random: Int {
         return Int(arc4random_uniform(10000))
     }
 }
 
 extension String: Randomizable {
-    static var random: String {
+    public static var random: String {
         return "\(Int.random)"
     }
 }
 
 extension UIImage: Randomizable {
-    static var random: UIImage {
+    public static var random: UIImage {
         let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         defer { UIGraphicsEndImageContext() }
@@ -40,7 +40,7 @@ extension UIImage: Randomizable {
 }
 
 extension UIColor: Randomizable {
-    static var random: UIColor {
+    public static var random: UIColor {
         return UIColor(
             red: CGFloat(arc4random_uniform(100)) / 100,
             green: CGFloat(arc4random_uniform(100)) / 100,
