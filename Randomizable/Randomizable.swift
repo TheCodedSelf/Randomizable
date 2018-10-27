@@ -15,7 +15,7 @@ public protocol Randomizable {
 
 extension Int: Randomizable {
     public static var random: Int {
-        return Int(arc4random_uniform(10000))
+        return .random(in: .min ... .max)
     }
 }
 
