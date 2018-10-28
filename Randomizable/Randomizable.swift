@@ -15,7 +15,7 @@ public protocol Randomizable {
 
 extension Int: Randomizable {
     public static var random: Int {
-        return Int(arc4random_uniform(10000))
+        return .random(in: .min ... .max)
     }
 }
 
@@ -42,9 +42,9 @@ extension UIImage: Randomizable {
 extension UIColor: Randomizable {
     public static var random: UIColor {
         return UIColor(
-            red: CGFloat(arc4random_uniform(100)) / 100,
-            green: CGFloat(arc4random_uniform(100)) / 100,
-            blue: CGFloat(arc4random_uniform(100)) / 100,
+            red: .random(in: 0.0 ... 1.0),
+            green: .random(in: 0.0 ... 1.0),
+            blue: .random(in: 0.0 ... 1.0),
             alpha: 1)
     }
 }
