@@ -19,6 +19,12 @@ extension Int: Randomizable {
     }
 }
 
+extension CGFloat: Randomizable {
+    public static var random: CGFloat {
+        return .random(in: -.greatestFiniteMagnitude / 2.0 ... .greatestFiniteMagnitude / 2.0)
+    }
+}
+
 extension String: Randomizable {
     public static var random: String {
         return "\(Int.random)"

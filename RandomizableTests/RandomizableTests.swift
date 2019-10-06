@@ -14,6 +14,10 @@ class RandomizableTests: XCTestCase {
     func testRandomizedIntegersAreDifferent() {
         assertItemsAreRandom(Int.self)
     }
+
+    func testRandomizedCGFloatsAreDifferent() {
+        assertItemsAreRandom(CGFloat.self)
+    }
     
     func testRandomizedStringsAreDifferent() {
         assertItemsAreRandom(String.self)
