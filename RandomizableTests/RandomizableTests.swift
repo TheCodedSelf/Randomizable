@@ -14,6 +14,12 @@ class RandomizableTests: XCTestCase {
     func testRandomizedIntegersAreDifferent() {
         assertItemsAreRandom(Int.self)
     }
+
+    func testRandomizedCGFloatsAreDifferent() {
+        // The reason for dividing `.greatestFiniteMagnitude` by 2 is because of a compiler limitation (bug?)
+        // More info here: https://github.com/apple/swift/blob/master/stdlib/public/core/FloatingPoint.swift#L2056
+        assertItemsAreRandom(CGFloat.self)
+    }
     
     func testRandomizedStringsAreDifferent() {
         assertItemsAreRandom(String.self)
